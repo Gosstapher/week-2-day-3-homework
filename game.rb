@@ -1,7 +1,8 @@
 class Game
 
   def initialize(win_checker)
-    @board = [ [nil, nil, nil], [nil, nil, nil], [nil, nil, nil] ]
+    @board = Array.new(3) { Array.new(3) }
+    # @board = [ [nil, nil, nil], [nil, nil, nil], [nil, nil, nil] ]
     @pieces = [:o, :x]
     @turn = 0
     @win_checker = win_checker
@@ -36,7 +37,6 @@ class Game
     place_piece(row, column)
     puts display_board
     check_for_win
-    
   end
 
   def check_for_win
@@ -52,7 +52,8 @@ class Game
   end
 
   def clear_board
-    @board = [ [nil, nil, nil], [nil, nil, nil], [nil, nil, nil] ]
+    @board = Array.new(3) { Array.new(3) }
+    # @board = [ [nil, nil, nil], [nil, nil, nil], [nil, nil, nil] ]
     @turn = 0
   end
 
@@ -80,24 +81,4 @@ class Game
       @board.flatten.all?
       #@turn == 9
     end
-
-    def draw
-      puts "The game is a draw"
-      puts display_board
-      put "Starting a new game"
-      new_game
-    end
-
-
-
-
-
-
-
-
-
-
-
-
-
 end
